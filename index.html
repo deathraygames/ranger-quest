@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ranger Quest</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/runner.css" />
+	<link href="fonts/silkscreen/silkscreen_normal.css" rel="stylesheet" type="text/css" charset="utf-8" />
+	<link rel="icon" href="images/favicon-city.ico" type="image/x-icon" />
+</head>
+<body>
+
+
+<div id="booting-up-rocket-boots">
+	Loading...
+</div>
+
+<section class="splash">
+	<h1>Ranger Quest</h1>
+	<div class="loading">Loading...</div>
+	<div class="start"><span class="click-word">Click</span> to start</div>
+</section>
+
+
+<section class="screen">
+
+	<div id="stage"></div>
+	<section class="action">
+		<div class="travel">
+			<div class="begin">
+				Town
+			</div>
+			<div class="bar"><div></div></div>
+			<div class="end">
+				Castle
+			</div>
+		</div>
+		<div class="combat">
+
+		</div>
+	</section>
+
+	<section class="controls">
+		<button type="button" title="Left">&vltri;</button>
+		<button type="button" title="Stop">&square;</button>
+		<button type="button" title="Right">&vrtri;</button>
+		<br />
+		<button type="button">Morale</button>
+	</section>
+
+	<dl class="stats">
+		<div class="col">
+			<dt>Health</dt>
+			<dd>1,000,000 / 1,000,000 HP</dd>
+			<dt>Experience</dt>
+			<dd>[rats]</dd>
+			<dd>1,000,000 / 1,000,000 XP</dd>
+		</div>
+		<div class="col">
+			<dt>Morale</dt>
+			<dd>50%</dd>
+			<dt>Speed</dt>
+			<dd>+50 m/s</dd>
+		</div>
+		<div class="col">
+			<dt>Gold</dt>
+			<dd class="currency gold">1,000,000,000</dd>
+			<dt>Bag</dt>
+			<dd>[backpack]</dd>
+			<dd>1,000,000 / 1,000,000</dd>
+			<dt>Worn</dt>
+			<dd>...</dd>
+		</div>
+
+	</dl>
+
+	<div class="tabs">
+		<a href="#ranger" class="ranger">Ranger
+		</a><a href="#inventory" class="inventory">Inventory
+		</a><a href="#strategy" class="strategies">Strategies
+		</a><a href="#options" class="options">Options
+		</a><a href="#about" class="about">About
+		</a>
+	</div>
+
+	<div class="tabbed-content-container">
+		<section class="ranger">Ranger Stats</section>
+		<section class="inventory">Inventory</section>
+		<section class="strategy">Strategies</section>
+		<section class="options">Options</section>
+		<section class="about">About</section>
+	</div>
+
+</section>
+
+<footer>
+	<p>Ranger Quest &copy; 2018, Luke @ <a href="http://deathraygames.com">deathraygames</a>
+	<p>Made for <a href="https://itch.io/jam/1-bit-clicker-jam">1-Bit Clicker Jam</a>
+</footer>
+
+
+<div class="scripts">
+	<script src="https://rocket-boots.github.io/rocket-boots/scripts/libs/jquery-3.1.1.min.js"></script>
+	<script src="https://rocket-boots.github.io/rocket-boots/scripts/libs/lodash.min.js"></script>
+	<script src="https://rocket-boots.github.io/rocket-boots/scripts/rocketboots/core.js"></script>
+	<script> RocketBoots.useGitHubScripts(); </script>
+
+	<script src="scripts/rq-data.js"></script>
+	<script src="scripts/rq-classes.js"></script>
+	<script src="scripts/rq-game.js"></script>
+</div>
+
+
+</body>
+</html>

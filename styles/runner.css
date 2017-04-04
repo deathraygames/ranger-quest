@@ -1,0 +1,152 @@
+html, body {
+	padding: 0;
+	margin: 0;
+}
+body {
+	background-color: #0a0c0a;
+	color: #aaffaa;
+	border-color: #aaffaa;
+	font-family: 'silkscreen_normal';
+	text-align: center;
+	/* box-shadow: inset 0 0 10em rgba(100,150,100,0.15); */
+}
+footer {
+	display: none;
+	padding: 5em 0;
+	font-size: 80%;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+	a:hover {
+		color: black;
+		background-color: #aaffaa;
+		text-decoration: none;
+	}
+
+button {
+	display: inline-block;
+	padding: 0.75em 1.5em;
+	background-color: transparent;
+	color: inherit;
+	border-color: inherit;
+	border: solid 1px;
+	border-bottom: solid 4px;
+	cursor: pointer;
+	outline: none;
+	font-family: 'silkscreen_normal';
+	font-size: 100%;
+
+}
+	button:hover {
+		color: #000000;
+		background-color: #aaffaa;
+	}
+	button:active {
+		border-color: transparent;
+	}
+
+section {
+	display: none;
+}
+
+
+.clearfix:after { content: ""; display: table; clear: both; }
+
+
+.splash {
+	padding: 1em 0;
+	font-size: 400%;
+}
+	.splash .loading {
+
+	}
+	.splash .start {
+		display: none;
+	}
+
+.action {
+	height: 5em;
+	max-width: 70em;
+	margin: 0 auto;
+	border: solid 0px;
+}
+
+.controls {
+
+}
+	.controls button {
+		min-width: 6em;
+		margin: 0.5em 0.25em;
+		min-height: 2em;
+		line-height: 2em;
+	}
+
+.stats {
+	text-align: left;
+	padding: 1em;
+	max-width: 70em;
+	margin: 0 auto;
+}
+	.stats:after { content: ""; display: table; clear: both; }
+
+	.stats .col {
+		box-sizing: border-box;
+		padding: 1em 5%;
+		width: 33%;
+		display: block;
+		float: left;
+	}
+
+.tabs {
+	margin: 1em auto 0 auto;
+	max-width: 70em;
+}
+	.tabs a {
+		position: relative;
+		display: inline-block;
+		padding: 0.75em 2em;
+		border-left: solid 1px;
+		margin: 0;
+	}
+	.tabs a:first-child {
+		border-left: 0;
+	}
+	.tabs a.selected {
+		border: solid 1px;
+		border-bottom: 0px;
+	}
+	.tabs a.selected::after {
+		content: " ";
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+		width: 100%;
+		height: 1px;
+		background: #0a0c0a;
+		z-index: 2;
+	}
+.tabbed-content-container {
+	border: dashed 1px;
+	border-bottom: solid 4px;
+	margin: 0 auto 2em auto;
+	padding: 1em;
+	max-width: 70em;
+	min-height: 10em;
+	text-align: left;
+}
+	.tabbed-content-container .selected {
+		display: block;
+	}
+
+
+#stage {
+	height: 300px;
+	width: 100%;
+	background: #000;
+}
+
+#booting-up-rocket-boots {
+	padding: 2em 0;
+}
