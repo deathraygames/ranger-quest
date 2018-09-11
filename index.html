@@ -30,6 +30,7 @@
 			<div class="begin">
 				Town
 			</div>
+			<div><span class="distance-value">______</span>m</div>
 			<div class="bar"><div></div></div>
 			<div class="end">
 				Castle
@@ -41,30 +42,30 @@
 	</section>
 
 	<section class="controls">
-		<button type="button" title="Left">&vltri;</button>
-		<button type="button" title="Stop">&square;</button>
-		<button type="button" title="Right">&vrtri;</button>
+		<button type="button" title="Left" class="go-left">&vltri;</button>
+		<button type="button" title="Stop" class="stop">&square;</button>
+		<button type="button" title="Right" class="go-right">&vrtri;</button>
 		<br />
-		<button type="button">Morale</button>
+		<button type="button" class="morale">Morale</button>
 	</section>
 
 	<dl class="stats">
 		<div class="col">
 			<dt>Health</dt>
-			<dd>1,000,000 / 1,000,000 HP</dd>
+			<dd><span class="health-value">______</span> / <span class="health-max">______</span> HP</dd>
 			<dt>Experience</dt>
 			<dd>[rats]</dd>
 			<dd>1,000,000 / 1,000,000 XP</dd>
 		</div>
 		<div class="col">
 			<dt>Morale</dt>
-			<dd>50%</dd>
+			<dd><span class="morale-value">______</span>%</dd>
 			<dt>Speed</dt>
-			<dd>+50 m/s</dd>
+			<dd><span class="distance-rate">______</span> m/s</dd>
 		</div>
 		<div class="col">
 			<dt>Gold</dt>
-			<dd class="currency gold">1,000,000,000</dd>
+			<dd class="currency gold"><span class="gold-value">______</span></dd>
 			<dt>Bag</dt>
 			<dd>[backpack]</dd>
 			<dd>1,000,000 / 1,000,000</dd>
@@ -103,6 +104,7 @@
 	<script src="https://rocket-boots.github.io/rocket-boots/scripts/libs/jquery-3.1.1.min.js"></script>
 	<script src="https://rocket-boots.github.io/rocket-boots/scripts/libs/lodash.min.js"></script>
 	<script src="https://rocket-boots.github.io/rocket-boots/scripts/rocketboots/core.js"></script>
+<script src="Currency.js"></script>
 	<script> RocketBoots.useGitHubScripts(); </script>
 
 	<script src="scripts/rq-data.js"></script>

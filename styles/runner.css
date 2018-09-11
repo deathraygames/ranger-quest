@@ -128,8 +128,7 @@ section {
 		z-index: 2;
 	}
 .tabbed-content-container {
-	border: dashed 1px;
-	border-bottom: solid 4px;
+	border-top: solid 1px;
 	margin: 0 auto 2em auto;
 	padding: 1em;
 	max-width: 70em;

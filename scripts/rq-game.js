@@ -18,7 +18,10 @@ RocketBoots.loadComponents([
 
 	//==== Constants
 
-	var GOLD_WEIGHT = 0.1;
+	var GOLD_WEIGHT 	= 0.1
+		,LOOP_DELAY 	= 100   	// 10 = 1/100th of a second (better than 60 fps)
+	;
+
 
 	//==== GAME
 
@@ -42,7 +45,6 @@ RocketBoots.loadComponents([
 		],
 		version: "v0.1"
 	});
-
 
 	g.state.addStates({
 		"preload": {
@@ -71,7 +73,6 @@ RocketBoots.loadComponents([
 		},
 		"menu": {
 			start: function () {
-				g.createRandomBuildings(); // TODO: remove this later
 				g.state.transition("game"); // go straight to the game; TODO: change this later
 			}
 		},
@@ -88,19 +89,42 @@ RocketBoots.loadComponents([
 			}, end: function () {
 				g.loop.stop();
 			}
+		},
+		"town": {
+			start: function () {
+				g.loop.start();
+			}, end: function () {
+				g.loop.stop();
+			}
+		},
+		"running": {
+			start: function () {
+				g.loop.start();
+			}, end: function () {
+				g.loop.stop();
+			}
+		}, 
+		"resting": {
+			start: function () {
+				g.loop.start();
+			}, end: function () {
+				g.loop.stop();
+			}			
 		}
 	});
 
+	g.inCombat = false;
+	g.direction = 0;
 	g.inventory = []; // TODO: fill this with items
 
 	g.incrementer.addCurrencies([
-		// DEMAND
 		{
-			name: "hp",
+			name: "health",
 			displayName: "Hit Points",
 			selectors: {
-				val: [".R .val"],
-				rate: [".R .rate"]
+				val: [".health-value"],
+				max: [".health-max"],
+				rate: [".health-rate"]
 			}, 
 			value: 0,
 			min: 0,
@@ -110,8 +134,9 @@ RocketBoots.loadComponents([
 			name: "distance",
 			displayName: "Distance",
 			selectors: {
-				val: [".C .val"],
-				rate: [".C .rate"]
+				val: [".distance-value"],
+				max: [".distance-max"],
+				rate: [".distance-rate"]
 			}, 
 			value: 0,
 			min: 0,
@@ -124,8 +149,9 @@ RocketBoots.loadComponents([
 			name: "morale",
 			displayName: "Morale",
 			selectors: {
-				val: [".I .val"],
-				rate: [".I .rate"]
+				val: [".morale-value"],
+				max: [".morale-max"],
+				rate: [".morale-rate"]
 			}, 
 			value: 100,
 			min: 0,
@@ -134,7 +160,11 @@ RocketBoots.loadComponents([
 		},{
 			name: "gold",
 			displayName: "Gold",
-			selectors: {},
+			selectors: {
+				val: [".gold-value"],
+				max: [".gold-max"],
+				rate: [".gold-rate"]
+			},
 			value: 0,
 			min: 0,
 			max: function(){
@@ -157,6 +187,16 @@ RocketBoots.loadComponents([
 		}
 	]);
 
+	g.loop.set(function quickLoop (iteration){
+		g.incrementer.incrementByElapsedTime(undefined, true);
+		g.incrementer.calculate();
+
+		//var onePlotAngle = (Math.PI * 2) / TOTAL_PLOTS;
+		//g.stage.camera.pos.theta -= onePlotAngle/100;
+		//g.stage.camera.rotation += onePlotAngle/100;
+		g.stage.draw();
+	}, LOOP_DELAY);
+
 
 	//==== U.I.
 
@@ -169,10 +209,30 @@ RocketBoots.loadComponents([
 	});
 	g.tabs.setup().select("about");
 
+	g.setupUI = function () {
+		$('.go-left').click(function(e){
+			g.state.transition('running');
+			g.direction = -1;
+		});
+		$('.go-right').click(function(e){
+			g.state.transition('running');
+			g.direction = 1;
+		});
+		$('.stop').click(function(e){
+			g.state.transition('resting');
+			g.direction = 0;
+		});
+		$('.morale').click(function(e){
+			g.incrementer.currencies.morale.add(1);
+		});
+	};
+
 
 
 	//==== Start Up
 
+	g.setupUI();
 	g.state.transition("preload");
+
 
 }).init();
